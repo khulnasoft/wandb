@@ -193,7 +193,7 @@ class Api:
         directory. If none can be found, we look in the current user's home
         directory.
 
-    Arguments:::
+    Arguments:
         default_settings(dict, optional): If you aren't using a settings
         file, or you wish to override the section to use in the settings file
         Override the settings here.
