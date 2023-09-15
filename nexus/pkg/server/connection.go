@@ -20,8 +20,8 @@ import (
 )
 
 const (
-	messageSize    = 1024 * 1024      // 1MB message size
-	maxMessageSize = 64 * 1024 * 1024 // 64MB max message size
+	messageSize    = 1024 * 1024            // 1MB message size
+	maxMessageSize = 2 * 1024 * 1024 * 1024 // 2GB max message size
 )
 
 // Connection is the connection for a stream.
@@ -157,6 +157,9 @@ func (nc *Connection) readConnection() {
 		} else {
 			nc.inChan <- msg
 		}
+	}
+	if scanner.Err() != nil {
+		panic(scanner.Err())
 	}
 	close(nc.inChan)
 }
